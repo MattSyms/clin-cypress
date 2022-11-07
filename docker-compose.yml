@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  portal-ui:
+    build:
+      context: .
+    user: node
+    working_dir: /home/node/clin-portal-ui
+    entrypoint: tail -f /dev/null
+    ports:
+      - ${PORTAL_UI_PORT}:${PORTAL_UI_PORT}
+    volumes:
+      - ~/.ssh:/home/node/.ssh
+      - ../clin-portal-ui:/home/node/clin-portal-ui
